@@ -1,0 +1,40 @@
+.provinceSelector{
+  display:inline;
+  float:left;
+  margin:10px;
+}
+
+#province, #city, #provinceMenu, #cityMenu{
+  color:#ffffff;
+  background-color:#34495e;
+}
+
+.inactiveP {
+  padding:12px 7px;
+  font-size:14px;
+  color:#ffffff;
+}
+
+.aStyle{
+  margin:15px 10px;
+  color: #ffffff;
+  font-size:14px;
+}
+
+.astyle:hover {
+  color:#3385ff;
+}
+
+.pointer{
+  cursor:pointer;
+}
+
+.activeP {
+  text-decoration:underline;
+  color:#3385ff;
+}
+
+.provinceAndCitySelector{
+  display:inline; 
+  margin:10px;
+}
