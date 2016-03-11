@@ -1,0 +1,61 @@
+<div class="dropdown provinceSelector">
+    <span > 省/直辖市:</span>
+    <button class="btn dropdown-toggle color" type="button" data-toggle="dropdown" id="province">
+        {{currentProvince.name}}<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="provinceMenu" id="provinceMenu" style="width:600px">
+        <div>
+            <li id="hint">
+                <span class="inactiveP">省份首字母</span>
+                <a class="aStyle pointer"  ng-repeat="p in letters" ng-class="{'activeP':isSelectedLetter(letters.indexOf(p))}" ng-click="selectLetter(letters.indexOf(p))">{{p}}</a>
+            </li>
+        </div>
+        <li class="divider"></li>
+        <div ng-show="isSelectedLetter(0)">
+            <li>
+                <span class="inactiveP" >华东地区 --- </span>
+                <a href="" class="aStyle" ng-repeat="p in eastProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+            <li>
+                <span class="inactiveP" >华南地区 --- </span>
+                <a href="" class="aStyle"  ng-repeat="p in southProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+            <li>
+                <span class="inactiveP" >华中地区 ---</span>
+                <a href="" class="aStyle" ng-repeat="p in middleProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+            <li>
+                <span class="inactiveP" >华北地区 --- </span>
+                <a href="" class="aStyle" ng-repeat="p in northProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+            <li>
+                <span class="inactiveP">西北地区 --- </span>
+                <a href="" class="aStyle"  ng-repeat="p in westNorthProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+            <li>
+                <span class="inactiveP" >西南地区 --- </span>
+                <a href="" class="aStyle" ng-repeat="p in westSouthProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+            <li>
+                <span class="inactiveP" >东北地区 --- </span>
+                <a href="" class="aStyle" ng-repeat="p in eastNorthProvince" ng-click="selectProvince(p)">{{p.name}}</a>
+            </li>
+        </div>
+        <div ng-repeat="p in letterProvince" ng-show="isSelectedLetter(p.id)">
+            <li>
+                <a href="" class="aStyle" ng-repeat="i in p.value" ng-click="selectProvince(i)">{{i.name}}</a>
+            </li>
+        </div>
+    </ul>
+</div>
+<div class="pull-left provinceAndCitySelector" ng-show="currentProvince.id !== 0">
+    <span class="filter-title">城市:</span>
+    <div class="btn-group">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="city">
+            {{currentCity.name}}<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" id="cityMenu">
+            <li ng-repeat="c in currentProvince.cities" class="aStyle"><span class="pointer" href="" ng-click="selectCity(c)">{{c.name}}</span></li>
+        </ul>
+    </div>
+</div>
